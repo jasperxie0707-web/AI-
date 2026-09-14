@@ -1,0 +1,449 @@
+\documentclass[UTF8,zihao=-4,oneside]{ctexrep}
+
+\usepackage[a4paper,top=25mm,bottom=25mm,left=28mm,right=24mm,headheight=15pt]{geometry}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\usepackage{unicode-math}
+\usepackage{xcolor}
+\usepackage{setspace}
+\usepackage{indentfirst}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{siunitx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usepackage{hyperref}
+\usepackage[nameinlink,noabbrev]{cleveref}
+\usepackage[
+  backend=biber,
+  style=gb7714-2015,
+  sorting=none
+]{biblatex}
+
+\addbibresource{references.bib}
+
+\IfFontExistsTF{Times New Roman}
+  {\setmainfont{Times New Roman}}
+  {\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{SimSun}
+  {\setCJKmainfont{SimSun}}
+  {\setCJKmainfont{FandolSong-Regular}}
+\IfFontExistsTF{SimHei}
+  {\setCJKsansfont{SimHei}}
+  {\setCJKsansfont{FandolHei-Regular}}
+\IfFontExistsTF{XITS Math}
+  {\setmathfont{XITS Math}}
+  {\setmathfont{Latin Modern Math}}
+
+\definecolor{documentblack}{RGB}{0,0,0}
+\color{documentblack}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=documentblack,
+  citecolor=documentblack,
+  urlcolor=documentblack,
+  pdfborder={0 0 0},
+  pdftitle={岩土工程项目技术报告}
+}
+
+\setlength{\parindent}{2em}
+\setlength{\parskip}{0pt}
+\setstretch{1.5}
+\setlist{nosep,leftmargin=2em}
+\sisetup{
+  detect-all,
+  per-mode=symbol,
+  range-phrase={\ensuremath{\sim}},
+  separate-uncertainty=true
+}
+\captionsetup{
+  font=small,
+  labelfont=bf,
+  labelsep=quad,
+  textfont=normalfont
+}
+\renewcommand{\thefigure}{\thechapter-\arabic{figure}}
+\renewcommand{\thetable}{\thechapter-\arabic{table}}
+\renewcommand{\theequation}{\thechapter-\arabic{equation}}
+
+\titleformat{\chapter}[hang]
+  {\centering\bfseries\zihao{3}}
+  {第\chinese{chapter}章}{1em}{}
+\titleformat{\section}
+  {\bfseries\zihao{4}}
+  {\thesection}{0.8em}{}
+\titleformat{\subsection}
+  {\bfseries\zihao{-4}}
+  {\thesubsection}{0.8em}{}
+\titlespacing*{\chapter}{0pt}{-12pt}{18pt}
+\titlespacing*{\section}{0pt}{12pt}{6pt}
+\titlespacing*{\subsection}{0pt}{8pt}{4pt}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{\zihao{5} 岩土工程项目技术报告}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\newcommand{\ProjectName}{××项目}
+\newcommand{\ReportName}{岩土工程项目技术报告}
+\newcommand{\ClientName}{××建设单位}
+\newcommand{\DesignerName}{××设计研究院有限公司}
+\newcommand{\ProjectStage}{施工图设计}
+\newcommand{\ProjectNumber}{GT-2026-001}
+\newcommand{\ReportDate}{2026年9月}
+
+\newcommand{\placeholder}[1]{\textcolor{documentblack}{【#1】}}
+\newcommand{\unit}[1]{\,\si{#1}}
+\newcommand{\safetyfactor}{K_{\mathrm{s}}}
+
+\begin{document}
+
+\begin{titlepage}
+  \thispagestyle{empty}
+  \centering
+  \vspace*{18mm}
+  {\zihao{2}\bfseries \ProjectName\par}
+  \vspace{12mm}
+  {\zihao{1}\bfseries \ReportName\par}
+  \vspace{8mm}
+  {\zihao{3}（\ProjectStage）\par}
+  \vfill
+  \renewcommand{\arraystretch}{1.6}
+  \begin{tabular}{>{\raggedleft\arraybackslash}p{36mm}p{80mm}}
+    项目编号： & \ProjectNumber \\
+    建设单位： & \ClientName \\
+    编制单位： & \DesignerName \\
+    编制日期： & \ReportDate \\
+  \end{tabular}
+  \vspace*{18mm}
+\end{titlepage}
+
+\chapter*{编制人员}
+\addcontentsline{toc}{chapter}{编制人员}
+\begin{table}[H]
+  \centering
+  \renewcommand{\arraystretch}{1.7}
+  \begin{tabularx}{\textwidth}{>{\centering\arraybackslash}p{25mm}X>{\centering\arraybackslash}p{35mm}}
+    \toprule
+    岗位 & 姓名 & 签字 \\
+    \midrule
+    审定 & \placeholder{填写} & \\
+    审核 & \placeholder{填写} & \\
+    项目负责人 & \placeholder{填写} & \\
+    编制 & \placeholder{填写} & \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+\chapter*{报告说明}
+\addcontentsline{toc}{chapter}{报告说明}
+本报告适用于岩土工程项目设计成果编制。正式提交前应核对勘察资料、设计边界、规范版本、计算模型、图纸编号及各专业接口。所有参数均应注明来源，经验值应说明采用依据与适用条件。
+
+\clearpage
+\pagenumbering{Roman}
+\tableofcontents
+\clearpage
+\listoffigures
+\addcontentsline{toc}{chapter}{插图目录}
+\clearpage
+\listoftables
+\addcontentsline{toc}{chapter}{表格目录}
+\clearpage
+\pagenumbering{arabic}
+
+\chapter{工程概况}
+
+\section{项目概况}
+\ProjectName 位于\placeholder{项目地点}。拟建内容包括\placeholder{建筑物、构筑物、道路及场地工程}。本次工作范围包括\placeholder{边坡支护、基坑支护、场地平整、地基处理等}。
+
+\section{任务范围}
+本次设计主要完成以下工作：
+\begin{enumerate}
+  \item 分析场地工程地质与水文地质条件；
+  \item 确定岩土设计参数及设计工况；
+  \item 开展方案比选、稳定性及承载力验算；
+  \item 提出构造、施工、检测、监测及风险控制要求。
+\end{enumerate}
+
+\section{设计条件与边界}
+\begin{table}[H]
+  \centering
+  \caption{主要设计条件}
+  \label{tab:design-condition}
+  \begin{tabularx}{\textwidth}{p{35mm}Xp{35mm}}
+    \toprule
+    项目 & 取值或说明 & 来源 \\
+    \midrule
+    设计使用年限 & \placeholder{填写} & \placeholder{任务书或规范} \\
+    工程安全等级 & \placeholder{填写} & \placeholder{判定依据} \\
+    抗震设防烈度 & \placeholder{填写} & \placeholder{地勘或规范} \\
+    地下水控制水位 & \placeholder{填写} & \placeholder{地勘或专项资料} \\
+    周边荷载 & \placeholder{填写} & \placeholder{总图或结构资料} \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+\chapter{编制依据}
+
+\section{基础资料}
+\begin{enumerate}
+  \item \placeholder{岩土工程勘察报告名称、编号、日期及版本}；
+  \item \placeholder{总平面图、建筑图、结构图及竖向设计资料}；
+  \item \placeholder{测量、监测、试验及现场调查资料}；
+  \item 建设单位提供的其他有效资料。
+\end{enumerate}
+
+\section{采用标准}
+引用标准时应写明标准全称、代号及年号。示例包括《建筑边坡工程技术规范》GB 50330—2013\cite{gb50330}、《岩土锚杆与喷射混凝土支护工程技术规范》GB 50086—2015\cite{gb50086}和《建筑基坑支护技术规程》JGJ 120—2012\cite{jgj120}。正式项目应根据任务类型核查现行版本及地方标准。
+
+\chapter{工程地质条件}
+
+\section{地形地貌}
+\placeholder{说明场地地形、地貌单元、现状高程、坡向、沟谷及人工改造情况。}
+
+\section{地层岩性}
+\begin{longtable}{>{\centering\arraybackslash}p{16mm}p{30mm}p{24mm}p{22mm}p{22mm}p{28mm}}
+  \caption{岩土层主要特征}\label{tab:strata}\\
+  \toprule
+  层号 & 岩土名称 & 状态或风化程度 & 层厚/m & 承载力特征值/kPa & 工程特性 \\
+  \midrule
+  \endfirsthead
+  \multicolumn{6}{l}{续表~\thetable}\\
+  \toprule
+  层号 & 岩土名称 & 状态或风化程度 & 层厚/m & 承载力特征值/kPa & 工程特性 \\
+  \midrule
+  \endhead
+  \bottomrule
+  \endfoot
+  ① & \placeholder{填土} & \placeholder{松散} & \placeholder{填写} & \placeholder{填写} & \placeholder{填写} \\
+  ② & \placeholder{粉质黏土} & \placeholder{可塑} & \placeholder{填写} & \placeholder{填写} & \placeholder{填写} \\
+  ③ & \placeholder{岩层} & \placeholder{强风化} & \placeholder{填写} & \placeholder{填写} & \placeholder{填写} \\
+\end{longtable}
+
+\section{地下水与不良地质作用}
+\placeholder{说明地下水类型、稳定水位、季节变化、腐蚀性、不良地质作用和特殊性岩土。}
+
+\chapter{设计参数与工况}
+
+\section{设计参数}
+\begin{table}[H]
+  \centering
+  \caption{岩土设计参数建议值}
+  \label{tab:parameters}
+  \resizebox{\textwidth}{!}{
+  \begin{tabular}{cccccccc}
+    \toprule
+    岩土层 & 重度 $\gamma$/(\si{\kilo\newton\per\cubic\metre}) &
+    黏聚力 $c$/kPa & 内摩擦角 $\varphi$/\si{\degree} &
+    地基承载力 $f_{ak}$/kPa & 锚固体黏结强度/kPa &
+    桩侧阻力/kPa & 参数来源 \\
+    \midrule
+    \placeholder{土层1} & \placeholder{填写} & \placeholder{填写} & \placeholder{填写} &
+    \placeholder{填写} & \placeholder{填写} & \placeholder{填写} & \placeholder{地勘} \\
+    \placeholder{土层2} & \placeholder{填写} & \placeholder{填写} & \placeholder{填写} &
+    \placeholder{填写} & \placeholder{填写} & \placeholder{填写} & \placeholder{地勘} \\
+    \bottomrule
+  \end{tabular}}
+\end{table}
+
+\section{计算工况}
+\begin{table}[H]
+  \centering
+  \caption{计算工况组合}
+  \label{tab:cases}
+  \begin{tabularx}{\textwidth}{cXXX}
+    \toprule
+    工况 & 地下水或降雨条件 & 荷载条件 & 验算项目 \\
+    \midrule
+    1 & 天然状态 & 永久作用与可变作用 & 稳定、承载、变形 \\
+    2 & 暴雨或不利水位 & 不利荷载组合 & 稳定、抗滑、抗倾覆 \\
+    3 & 地震状态 & 地震作用组合 & 整体稳定与结构承载 \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+\chapter{方案比选}
+
+\section{备选方案}
+\placeholder{列明方案构成、适用性、施工条件、工期、造价、耐久性及环境影响。}
+
+\begin{table}[H]
+  \centering
+  \caption{方案综合比选}
+  \label{tab:comparison}
+  \begin{tabularx}{\textwidth}{p{27mm}XXX}
+    \toprule
+    比选因素 & 方案一 & 方案二 & 方案三 \\
+    \midrule
+    安全适用性 & \placeholder{填写} & \placeholder{填写} & \placeholder{填写} \\
+    施工可行性 & \placeholder{填写} & \placeholder{填写} & \placeholder{填写} \\
+    工期影响 & \placeholder{填写} & \placeholder{填写} & \placeholder{填写} \\
+    经济性 & \placeholder{填写} & \placeholder{填写} & \placeholder{填写} \\
+    风险与维护 & \placeholder{填写} & \placeholder{填写} & \placeholder{填写} \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+\section{推荐方案}
+经综合比较，推荐采用\placeholder{方案名称}。推荐理由为\placeholder{填写关键控制因素及决策逻辑}。
+
+\chapter{计算分析}
+
+\section{计算模型}
+\placeholder{说明计算软件、版本、计算方法、模型范围、边界条件、地下水处理、荷载施加及参数折减方式。}
+
+\section{典型计算表达}
+边坡整体稳定安全系数可统一记为
+\begin{equation}
+  \safetyfactor=\frac{\sum R_i}{\sum T_i},
+  \label{eq:ks}
+\end{equation}
+式中，$R_i$ 为第 $i$ 条分块的抗滑作用，$T_i$ 为相应下滑作用。具体表达式应与采用的极限平衡方法一致。
+
+挡土结构抗倾覆安全系数可写为
+\begin{equation}
+  K_0=\frac{\sum M_{\mathrm{res}}}{\sum M_{\mathrm{ovt}}},
+  \label{eq:overturning}
+\end{equation}
+其中，$\sum M_{\mathrm{res}}$ 为抗倾覆力矩之和，$\sum M_{\mathrm{ovt}}$ 为倾覆力矩之和。
+
+\section{结果汇总}
+\begin{table}[H]
+  \centering
+  \caption{主要计算结果汇总}
+  \label{tab:results}
+  \begin{tabularx}{\textwidth}{p{35mm}p{28mm}p{28mm}Xp{22mm}}
+    \toprule
+    验算项目 & 计算值 & 限值 & 控制工况 & 结论 \\
+    \midrule
+    整体稳定安全系数 & \placeholder{填写} & \placeholder{填写} & \placeholder{填写} & 满足/不满足 \\
+    抗滑安全系数 & \placeholder{填写} & \placeholder{填写} & \placeholder{填写} & 满足/不满足 \\
+    抗倾覆安全系数 & \placeholder{填写} & \placeholder{填写} & \placeholder{填写} & 满足/不满足 \\
+    地基承载力 & \placeholder{填写} & \placeholder{填写} & \placeholder{填写} & 满足/不满足 \\
+    最大变形 & \placeholder{填写} & \placeholder{填写} & \placeholder{填写} & 满足/不满足 \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+\chapter{构造设计}
+
+\section{支护结构}
+\placeholder{说明结构断面、材料强度、保护层、锚固与连接、伸缩缝、排水孔、反滤层及耐久性构造。}
+
+\section{排水系统}
+\placeholder{说明坡顶截水、坡面排水、墙背排水、泄水孔、盲沟、集水井和下游可靠衔接。}
+
+\section{典型示意图}
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[x=1cm,y=1cm,line width=0.8pt]
+    \draw (0,0) -- (11,0);
+    \draw (2,0) -- (7,4.2) -- (11,4.2);
+    \foreach \y in {0.9,1.8,2.7,3.6}{
+      \pgfmathsetmacro{\x}{2+5*\y/4.2}
+      \draw[->] (\x,\y) -- ++(-2.2,-0.3);
+    }
+    \draw[thick] (7,4.2) -- (7.8,4.2);
+    \node at (5.3,2.7) {支护面};
+    \node at (4.7,0.35) {坡脚排水};
+    \node at (9,4.5) {坡顶截水};
+  \end{tikzpicture}
+  \caption{典型支护与排水关系示意}
+  \label{fig:typical-support}
+\end{figure}
+
+\chapter{施工技术要求}
+
+\section{总体顺序}
+施工宜遵循分区、分层、分段原则，并结合支护体系确定开挖与支护时序。关键工序包括测量放线、排水先行、试验施工、分层开挖、随挖随支、质量检测、监测反馈和验收移交。
+
+\section{材料与工艺}
+\begin{enumerate}
+  \item 进场材料应具有质量证明文件，并按规定见证取样；
+  \item 隐蔽工程应在封闭前完成检查、记录和验收；
+  \item 锚杆、土钉、灌注桩及注浆参数应通过设计要求和现场试验共同确定；
+  \item 施工中发现地层、地下水或周边条件与勘察资料明显不符时，应暂停相关工序并及时反馈。
+\end{enumerate}
+
+\chapter{检测与监测}
+
+\section{检测要求}
+\begin{table}[H]
+  \centering
+  \caption{检测项目一览}
+  \label{tab:test}
+  \begin{tabularx}{\textwidth}{p{30mm}Xp{30mm}p{28mm}}
+    \toprule
+    对象 & 检测内容 & 数量或比例 & 判定依据 \\
+    \midrule
+    \placeholder{锚杆} & \placeholder{基本试验、验收试验} & \placeholder{填写} & \placeholder{标准条款} \\
+    \placeholder{桩} & \placeholder{完整性、承载力} & \placeholder{填写} & \placeholder{标准条款} \\
+    \placeholder{地基} & \placeholder{压实度、承载力} & \placeholder{填写} & \placeholder{标准条款} \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+\section{监测要求}
+监测项目、点位、频率、预警值和控制值应结合工程等级、支护形式、周边环境与施工阶段确定。监测数据达到预警值或变化速率异常时，应及时复核并启动相应处置流程。
+
+\chapter{风险控制与应急措施}
+
+\section{主要风险}
+\begin{enumerate}
+  \item \placeholder{暴雨入渗、地下水上升或排水失效}；
+  \item \placeholder{超挖、坡脚扰动或支护滞后}；
+  \item \placeholder{成孔困难、塌孔、缩径或注浆不足}；
+  \item \placeholder{周边建构筑物、道路及管线变形}。
+\end{enumerate}
+
+\section{应急原则}
+出现异常位移、裂缝扩展、局部坍塌、涌水涌砂或支护构件受力异常时，应立即停止危险区域作业、设置警戒、疏散人员，并采取卸载、反压、回填、排水或临时加固等措施。后续处理应依据现场复核、监测数据与专项分析确定。
+
+\chapter{结论与建议}
+
+\begin{enumerate}
+  \item \placeholder{概括工程地质条件和主要控制问题}；
+  \item \placeholder{说明推荐方案与关键设计指标}；
+  \item \placeholder{说明计算结果及安全储备}；
+  \item \placeholder{提出施工、检测、监测和运行维护建议}。
+\end{enumerate}
+
+\printbibliography[heading=bibintoc,title={参考文献}]
+
+\appendix
+\chapter{计算书目录}
+\placeholder{列出计算模型、软件版本、输入参数、工况、主要结果及完整计算书文件编号。}
+
+\chapter{图纸与资料清单}
+\begin{longtable}{cp{45mm}p{35mm}p{35mm}}
+  \caption{成果文件清单}\\
+  \toprule
+  序号 & 文件名称 & 编号 & 版本或日期 \\
+  \midrule
+  \endfirsthead
+  \toprule
+  序号 & 文件名称 & 编号 & 版本或日期 \\
+  \midrule
+  \endhead
+  \bottomrule
+  \endfoot
+  1 & \placeholder{设计图纸} & \placeholder{填写} & \placeholder{填写} \\
+  2 & \placeholder{计算书} & \placeholder{填写} & \placeholder{填写} \\
+  3 & \placeholder{相关专题报告} & \placeholder{填写} & \placeholder{填写} \\
+\end{longtable}
+
+\end{document}
