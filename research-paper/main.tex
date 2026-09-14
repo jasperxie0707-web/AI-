@@ -1,0 +1,277 @@
+\documentclass[UTF8,zihao=-5,twoside]{ctexart}
+
+\usepackage[a4paper,top=24mm,bottom=24mm,left=24mm,right=24mm,headheight=14pt]{geometry}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\usepackage{unicode-math}
+\usepackage{xcolor}
+\usepackage{setspace}
+\usepackage{indentfirst}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{siunitx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{bm}
+\usepackage{authblk}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usepackage{hyperref}
+\usepackage[nameinlink,noabbrev]{cleveref}
+\usepackage[
+  backend=biber,
+  style=gb7714-2015,
+  sorting=none
+]{biblatex}
+
+\addbibresource{references.bib}
+
+\IfFontExistsTF{Times New Roman}
+  {\setmainfont{Times New Roman}}
+  {\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{SimSun}
+  {\setCJKmainfont{SimSun}}
+  {\setCJKmainfont{FandolSong-Regular}}
+\IfFontExistsTF{SimHei}
+  {\setCJKsansfont{SimHei}}
+  {\setCJKsansfont{FandolHei-Regular}}
+\IfFontExistsTF{XITS Math}
+  {\setmathfont{XITS Math}}
+  {\setmathfont{Latin Modern Math}}
+
+\definecolor{paperblack}{RGB}{0,0,0}
+\color{paperblack}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=paperblack,
+  citecolor=paperblack,
+  urlcolor=paperblack,
+  pdfborder={0 0 0},
+  pdftitle={岩土工程科研论文}
+}
+
+\setlength{\parindent}{2em}
+\setlength{\parskip}{0pt}
+\setstretch{1.35}
+\setlist{nosep,leftmargin=2em}
+\sisetup{detect-all,per-mode=symbol,separate-uncertainty=true}
+\captionsetup{font=small,labelfont=bf,labelsep=quad}
+\numberwithin{equation}{section}
+
+\titleformat{\section}
+  {\bfseries\zihao{4}}
+  {\thesection}{0.7em}{}
+\titleformat{\subsection}
+  {\bfseries\zihao{-4}}
+  {\thesubsection}{0.7em}{}
+\titlespacing*{\section}{0pt}{12pt}{5pt}
+\titlespacing*{\subsection}{0pt}{8pt}{4pt}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\zihao{5} 岩土工程科研论文}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\newcommand{\placeholder}[1]{\textcolor{paperblack}{【#1】}}
+\newcommand{\keywordsname}{关键词：}
+\newcommand{\enkeywordsname}{Keywords:}
+
+\title{\bfseries\zihao{2} \placeholder{论文题目}}
+\author[1]{\zihao{-4} \placeholder{作者姓名}}
+\author[2]{\zihao{-4} \placeholder{合作者}}
+\affil[1]{\zihao{5} \placeholder{单位名称，城市 邮编}}
+\affil[2]{\zihao{5} \placeholder{单位名称，城市 邮编}}
+\date{}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{plain}
+
+\begin{abstract}
+\noindent
+\textbf{摘要：}
+\placeholder{按研究背景、目的、方法、结果和结论组织摘要。明确研究对象、关键方法、主要定量结果及工程意义，避免只描述研究过程。}
+
+\noindent
+\textbf{\keywordsname}
+\placeholder{岩土工程；边坡稳定；数值模拟；机器学习；监测预警}
+\end{abstract}
+
+\vspace{6pt}
+\begin{center}
+  {\bfseries\zihao{3} \placeholder{English Title of the Paper}\par}
+  \vspace{5pt}
+  {\zihao{-4} \placeholder{Author Name}$^{1}$, \placeholder{Co-author}$^{2}$\par}
+  {\zihao{5} $^{1}$\placeholder{Affiliation, City, Postal Code, China}\par}
+\end{center}
+
+\begin{abstract}
+\noindent
+\textbf{Abstract:}
+\placeholder{State the background, objective, methods, principal quantitative findings, and engineering implications in concise academic English.}
+
+\noindent
+\textbf{\enkeywordsname}
+\placeholder{geotechnical engineering; slope stability; numerical simulation; machine learning; early warning}
+\end{abstract}
+
+\section{引言}
+
+岩土工程问题具有材料非均质、参数不确定和施工过程强相关等特征。引言宜依次说明工程或科学问题、国内外研究进展、现有方法局限、本文研究目标与创新点。经典边坡稳定分析可追溯至 Bishop 方法\cite{bishop1955}，数据驱动方法则可用于融合监测信息与机理模型\cite{example2026}。
+
+本文主要工作包括：
+\begin{enumerate}
+  \item \placeholder{提出研究问题与总体框架}；
+  \item \placeholder{建立理论、数值或试验方法}；
+  \item \placeholder{完成验证、对比与敏感性分析}；
+  \item \placeholder{总结工程适用条件和局限性}。
+\end{enumerate}
+
+\section{工程背景与研究对象}
+
+\subsection{工程概况}
+\placeholder{说明地理位置、工程规模、支护或基础形式、建设阶段和主要风险。涉及实际工程时，应隐去不宜公开的信息。}
+
+\subsection{工程地质条件}
+\begin{table}[H]
+  \centering
+  \caption{岩土体主要参数}
+  \label{tab:soil-parameters}
+  \begin{tabularx}{\textwidth}{Xccccc}
+    \toprule
+    岩土层 & 重度/(\si{\kilo\newton\per\cubic\metre}) &
+    弹性模量/MPa & 泊松比 & 黏聚力/kPa & 内摩擦角/\si{\degree} \\
+    \midrule
+    \placeholder{土层1} & \placeholder{填写} & \placeholder{填写} &
+    \placeholder{填写} & \placeholder{填写} & \placeholder{填写} \\
+    \placeholder{土层2} & \placeholder{填写} & \placeholder{填写} &
+    \placeholder{填写} & \placeholder{填写} & \placeholder{填写} \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+\section{理论与方法}
+
+\subsection{总体框架}
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[
+    node distance=12mm and 13mm,
+    box/.style={draw,rounded corners=2pt,minimum width=29mm,minimum height=10mm,align=center},
+    arrow/.style={->,line width=0.7pt}
+  ]
+    \node[box] (data) {工程与监测数据};
+    \node[box,right=of data] (model) {机理或数据模型};
+    \node[box,right=of model] (result) {预测与评估};
+    \node[box,below=of model] (decision) {工程决策与反馈};
+    \draw[arrow] (data) -- (model);
+    \draw[arrow] (model) -- (result);
+    \draw[arrow] (result) |- (decision);
+    \draw[arrow] (decision) -| (data);
+  \end{tikzpicture}
+  \caption{研究总体框架}
+  \label{fig:framework}
+\end{figure}
+
+\subsection{控制方程或核心算法}
+以一般非线性映射为例：
+\begin{equation}
+  \hat{\bm{y}}=f_{\bm{\theta}}(\bm{x}),
+  \label{eq:model}
+\end{equation}
+其中，$\bm{x}$ 为输入特征，$\hat{\bm{y}}$ 为预测结果，$\bm{\theta}$ 为待识别参数。
+
+若采用均方误差作为目标函数，则
+\begin{equation}
+  \mathcal{L}(\bm{\theta})
+  =\frac{1}{N}\sum_{i=1}^{N}
+  \left\lVert \bm{y}_i-f_{\bm{\theta}}(\bm{x}_i)\right\rVert_2^2.
+  \label{eq:loss}
+\end{equation}
+
+\subsection{参数与边界条件}
+\placeholder{说明数据来源、试验条件、网格或颗粒尺度、初始应力、边界、接触模型、本构模型、地下水、荷载路径及参数标定方法。}
+
+\section{数值模型或试验方案}
+
+\subsection{模型建立}
+\placeholder{给出模型尺寸、单元或颗粒数量、边界条件、施工阶段和计算流程。网格或颗粒尺度应完成收敛性或敏感性说明。}
+
+\subsection{试验与数据集}
+\placeholder{说明样本数量、测点布置、采样频率、数据清洗、训练验证测试划分和防止数据泄漏的措施。}
+
+\subsection{评价指标}
+常用回归指标可表示为
+\begin{align}
+  \mathrm{RMSE} &=
+  \sqrt{\frac{1}{N}\sum_{i=1}^{N}(y_i-\hat{y}_i)^2},\\
+  R^2 &=1-\frac{\sum_{i=1}^{N}(y_i-\hat{y}_i)^2}
+  {\sum_{i=1}^{N}(y_i-\bar{y})^2}.
+\end{align}
+分类或预警研究还应报告精确率、召回率、F1 值、误报率、漏报率及提前量。
+
+\section{结果}
+
+\subsection{主要结果}
+\begin{table}[H]
+  \centering
+  \caption{不同方法结果对比}
+  \label{tab:model-results}
+  \begin{tabular}{lcccc}
+    \toprule
+    方法 & RMSE & $R^2$ & 计算时间/s & 备注 \\
+    \midrule
+    \placeholder{基准方法} & \placeholder{填写} & \placeholder{填写} & \placeholder{填写} & \placeholder{填写} \\
+    \placeholder{本文方法} & \placeholder{填写} & \placeholder{填写} & \placeholder{填写} & \placeholder{填写} \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{参数敏感性}
+\placeholder{报告关键参数变化对稳定性、变形、内力或预测性能的影响。建议给出物理解释与统计不确定性。}
+
+\section{讨论}
+
+\subsection{机理解释}
+\placeholder{联系土体结构、应力路径、渗流、施工扰动或数据分布解释结果，避免将相关性直接等同于因果关系。}
+
+\subsection{对比与验证}
+\placeholder{与理论解、现场监测、室内试验、既有方法或独立工程案例比较。说明误差来源及适用范围。}
+
+\subsection{局限性}
+\placeholder{说明样本代表性、参数不确定性、模型假设、尺度效应、外推能力和现场实施限制。}
+
+\section{工程应用}
+
+\placeholder{将研究结果转化为设计参数、预警阈值、施工控制指标或决策流程，并说明应用前提。}
+
+\section{结论}
+
+\begin{enumerate}
+  \item \placeholder{结论一，应包含主要定量结果}；
+  \item \placeholder{结论二，应回答核心科学或工程问题}；
+  \item \placeholder{结论三，应说明工程价值和适用条件}；
+  \item \placeholder{后续研究方向，保持具体且可验证}。
+\end{enumerate}
+
+\section*{数据与代码可用性}
+\placeholder{填写数据、代码、模型文件的公开地址、获取条件或不公开原因。}
+
+\section*{利益冲突}
+作者声明不存在可能影响本文工作的利益冲突。
+
+\section*{致谢}
+\placeholder{填写项目、基金、单位及协作人员信息。}
+
+\printbibliography[heading=bibintoc,title={参考文献}]
+
+\end{document}
